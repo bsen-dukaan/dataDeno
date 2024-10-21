@@ -5,6 +5,10 @@ const app = new Hono();
 
 const BACKEND_URL = "https://apiv1.bot9.ai/api/analytics/v2";
 
+app.get("/", (c) => {
+  return c.json({ msg: "Hi This is Deno!" });
+});
+
 app.get("/api/csat-dump/:bot9ID", async (c) => {
   const bot9ID = c.req.param("bot9ID");
   const { startDate, startTime, endDate, endTime } = c.req.query();
